@@ -6,7 +6,7 @@ typedef const char* EventID;
 
 struct GameEvent
 {
-  explicit GameEvent();
+  explicit GameEvent() { };
 
   virtual EventID GetID() const = 0;
 };
@@ -64,3 +64,8 @@ struct Events
   static const EndEvent s_EndEvent;
   static const SpawnEvent s_SpawnEvent;
 };
+
+// Instantiating static variables
+inline const StartEvent Events::s_StartEvent;
+inline const EndEvent Events::s_EndEvent;
+inline const SpawnEvent Events::s_SpawnEvent;
